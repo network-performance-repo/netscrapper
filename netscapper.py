@@ -8,7 +8,7 @@ def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
-def scapNetworkQuality():
+def scrapNetworkQuality():
     dfAllProvinces = pd.DataFrame()
     dfListProvincesData = []
 
@@ -45,7 +45,7 @@ def scapNetworkQuality():
     dfAllProvinces = pd.concat(dfListProvincesData, axis=0, ignore_index=True)
     return dfAllProvinces
 
-dfAllProvinces = scapNetworkQuality()
+dfAllProvinces = scrapNetworkQuality()
 
 absPath = os.path.dirname(os.path.abspath(__file__))
 completeFilePath = absPath + r'\Network_Quality_All_Provinces.csv'
