@@ -123,7 +123,7 @@ async def main():
             # await page.click(selector='i[class="fal fa-globe smaller-icon"]')
             # await page.waitForSelector(selector='#root > div > div.right-panel > div > div.tab > div:nth-child(3) > div')
             await page.waitFor(5000)
-            await page.waitForSelector(selector='#root > div > div.right-panel > div > div.tab > div:nth-child(3)')
+            #await page.waitForSelector(selector='#root > div > div.right-panel > div > div.tab > div:nth-child(3)')
             #await page.click(selector='#root > div > div.right-panel > div > div.tab > div:nth-child(3) > div')
             await page.click(selector='#root > div > div.right-panel > div > div.tab > div:nth-child(3)')
 
@@ -140,29 +140,25 @@ async def main():
             # await element.click()
             await page.waitFor(500)
 
-            await page.waitForSelector(
-                selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div.tab-content.--focused > div')
+            await page.waitForSelector(selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div.tab-content.--focused > div')
             await page.click(
                 selector='#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(3) > div')
             await page.waitFor(500)
             # await page.screenshot({'path': 'netsanj-gaming.png'})
 
-            await page.waitForSelector(
-                selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(4) > div')
+            await page.waitForSelector(selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(4) > div')
             await page.click(
                 selector='#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(4) > div')
             await page.waitFor(500)
             # await page.screenshot({'path': 'netsanj-voip.png'})
 
-            await page.waitForSelector(
-                selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(5) > div')
+            await page.waitForSelector(selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(5) > div')
             await page.click(
                 selector='#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(5) > div')
             await page.waitFor(500)
             # await page.screenshot({'path': 'netsanj-download.png'})
 
-            await page.waitForSelector(
-                selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(6) > div')
+            await page.waitForSelector(selector=r'#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(6) > div')
             await page.click(
                 selector='#root > div > div.right-panel > div > div.scroll-layout.report-content.report-internet-quality > div:nth-child(2) > div.content-box--content > div.tab.--count5 > div:nth-child(6) > div')
             await page.waitFor(500)
@@ -198,6 +194,3 @@ dfAllProvinces = pd.DataFrame()
 dfListProvincesCategoriesData = []
 
 asyncio.get_event_loop().run_until_complete(main())
-
-
-
