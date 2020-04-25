@@ -6,6 +6,14 @@ from pyppeteer import element_handle
 import pandas as pd
 import os
 
+serviceCategory = {
+    1: "کاربران تجاری",
+    2: "بازی",
+    3: "تماس اینترنتی",
+    4: "دانلئد حجیم",
+    5: "وبگردی"
+}
+
 province_address = {
     "GOLESTAN": 'گرگان،ملل،خ. ملل متحد،خ. آلوچه باغ،ک. کلیسا',
     "MAZANDARAN": 'ساری،خ قارن،خ. قارن،خ. قارن ۱۱',
@@ -59,12 +67,14 @@ async def handle_response(response):
         response_text = await response.text()
         print(response.url, response_text)
         dfProvinceCategoryJson = pd.read_json(response_text) # now pandas can understand it (doesn't accept json object)
+        serviceCategoryIndex = int(lastTwoChars[-1:])  # extracting the index only
+        dfProvinceCategoryJson['Category'] = serviceCategory[serviceCategoryIndex] # adding the category column manualy to the DF.
         #print(dfProvinceCategoryJson)
         dfListProvincesCategoriesData.append(dfProvinceCategoryJson)
 
     #return await response.continue_()
 
-
+#async def retryTillNoException():
 
 async def main():
     #browser = await launch()
@@ -193,4 +203,10 @@ async def main():
 dfAllProvinces = pd.DataFrame()
 dfListProvincesCategoriesData = []
 
+#asyncio.get_event_loop().run_until_complete(main('همدان،خیابان تختی،بلوار چهارباغ دکتر مفتح،بلوار شهدا'))
+#asyncio.get_event_loop().run_until_complete(main('زاهدان،گلستان،بلوار امام خمینی،بلوار امیرالمومنین'))
+#asyncio.get_event_loop().run_until_complete(main('تبریز،منطقه سه،مقصودیه،بلوار هفده شهریور،خ. حاج نایب'))
 asyncio.get_event_loop().run_until_complete(main())
+
+
+
